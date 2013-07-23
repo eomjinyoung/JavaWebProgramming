@@ -42,33 +42,41 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == equal) {
-			double a = Double.parseDouble(operand1.getText()); 
-			double b = Double.parseDouble(operand2.getText());
-			double r = 0;
-			
-			try {
-				switch (operator.getSelectedItem().toString()) {
-				case "+": r = a + b; break;
-				case "-": r = a - b; break;
-				case "*": r = a * b; break;
-				case "/": 
-					if (b == 0) throw new Exception("0 으로 나눌 수 없습니다!");
-					r = a / b; break;
-				}
-				
-				result.setText(Double.toString(r));
-				
-			} catch (Exception err) {
-				JOptionPane.showMessageDialog(
-					null, err.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-			}
+			compute();
 		} else {
-			this.operand1.setText("");
-			this.operand2.setText("");
-			this.result.setText("");
+			clearForm();
 		}
-		
 	}
+	
+	private void compute() {
+		double a = Double.parseDouble(operand1.getText()); 
+		double b = Double.parseDouble(operand2.getText());
+		double r = 0;
+		
+		try {
+			switch (operator.getSelectedItem().toString()) {
+			case "+": r = a + b; break;
+			case "-": r = a - b; break;
+			case "*": r = a * b; break;
+			case "/": 
+				if (b == 0) throw new Exception("0 으로 나눌 수 없습니다!");
+				r = a / b; break;
+			}
+			
+			result.setText(Double.toString(r));
+			
+		} catch (Exception err) {
+			JOptionPane.showMessageDialog(
+				null, err.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	private void clearForm() {
+		this.operand1.setText("");
+		this.operand2.setText("");
+		this.result.setText("");
+	}
+	
 	
 	private Box createInputForm() {
 		Box box = Box.createHorizontalBox();
@@ -94,7 +102,4 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 		CalculatorFrame app = new CalculatorFrame();
 		app.setVisible(true);
 	}
-
-	
-	
 }
