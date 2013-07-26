@@ -25,7 +25,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 	JButton clear = new JButton("Clear");
 	
 	public CalculatorFrame() {
-		this.setTitle("Lesson01-Exam01");
+		this.setTitle("Lesson01-Exam02");
 		
 		Container contentPane = this.getContentPane();
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
