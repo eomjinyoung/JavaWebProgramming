@@ -17,9 +17,8 @@ import javax.swing.JTextField;
 public class CalculatorFrame extends JFrame implements ActionListener{
 	CalculatorAgent calcAgent = new CalculatorAgent("localhost", 8888);
 	JTextField operand1 = new JTextField(4);
+	JTextField operator = new JTextField(2);
 	JTextField operand2 = new JTextField(4);
-	String[] operatorData = {"+", "-", "*", "/"};
-	JComboBox<String> operator = new JComboBox<String>(operatorData);
 	JButton equal = new JButton("=");
 	JTextField result = new JTextField(6);
 	JButton clear = new JButton("Clear");
@@ -55,7 +54,7 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 		double r = 0;
 		
 		try {
-			r = calcAgent.compute(operator.getSelectedItem().toString(), a, b);
+			r = calcAgent.compute(operator.getText(), a, b);
 			result.setText(Double.toString(r));
 			
 		} catch (Exception err) {
