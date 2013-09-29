@@ -18,8 +18,6 @@ public class CalculatorServer {
 		
 		while(true) {
 			try {
-				System.out.println("waiting client...");
-				
 				socket = serverSocket.accept();
 				System.out.println("connected to client.");
 				
