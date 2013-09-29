@@ -32,41 +32,52 @@ public class CalculatorServer {
 				System.out.println("connection error!");
 			}
 		}
-		
 	}
 	
 	private void processRequest(Socket socket) throws Exception {
 		Scanner in = new Scanner(socket.getInputStream());
 		PrintStream out = new PrintStream(socket.getOutputStream());
-	
-		String operator = in.nextLine();
-		double a = Double.parseDouble(in.nextLine());
-		double b = Double.parseDouble(in.nextLine());
-		double r = 0;
-		
-		try {
-			switch (operator) {
-			case "+": r = a + b; break;
-			case "-": r = a - b; break;
-			case "*": r = a * b; break;
-			case "/": 
-				if (b == 0) throw new Exception("0 으로 나눌 수 없습니다!");
-				r = a / b; break;
-			default:
-				throw new Exception("해당 연산을 지원하지 않습니다!");
-			}
-			out.println("success");
-			out.println(r);
 			
-		} catch (Exception err) {
-			out.println("failure");
-			out.println(err.getMessage());
+		String operator = null;
+		double a, b, r;
+		
+		while(true) {
+			try {
+				operator = in.nextLine();
+				
+				if (operator.equals("goodbye")) {
+					out.println("goodbye");
+					break;
+					
+				} else {
+					a = Double.parseDouble(in.nextLine());
+					b = Double.parseDouble(in.nextLine());
+					r = 0;
+				
+					switch (operator) {
+					case "+": r = a + b; break;
+					case "-": r = a - b; break;
+					case "*": r = a * b; break;
+					case "/": 
+						if (b == 0) throw new Exception("0 으로 나눌 수 없습니다!");
+						r = a / b; 
+						break;
+					default:
+						throw new Exception("해당 연산을 지원하지 않습니다!");
+					}
+					out.println("success");
+					out.println(r);
+				}
+				
+			} catch (Exception err) {
+				out.println("failure");
+				out.println(err.getMessage());
+			}
 		}
 		
-		
-		out.close();
-		in.close();
-		socket.close();
+		try {out.close();} catch (Exception e) {}
+		try {in.close();} catch (Exception e) {}
+		try {socket.close();} catch (Exception e) {}
 	}
 	
 	public static void main(String[] args) throws Exception {

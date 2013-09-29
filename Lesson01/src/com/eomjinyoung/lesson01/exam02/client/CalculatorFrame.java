@@ -4,18 +4,19 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class CalculatorFrame extends JFrame implements ActionListener{
-	CalculatorAgent calcAgent = new CalculatorAgent("localhost", 8888);
+	CalculatorAgent calcAgent;
 	JTextField operand1 = new JTextField(4);
 	JTextField operator = new JTextField(2);
 	JTextField operand2 = new JTextField(4);
@@ -24,6 +25,14 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 	JButton clear = new JButton("Clear");
 	
 	public CalculatorFrame() {
+		try {
+			calcAgent = new CalculatorAgent("localhost", 8888);
+		} catch (Exception err) {
+			JOptionPane.showMessageDialog(
+					null, err.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+		}
+		
 		this.setTitle("Lesson01-Exam02");
 		
 		Container contentPane = this.getContentPane();
@@ -34,7 +43,14 @@ public class CalculatorFrame extends JFrame implements ActionListener{
 		contentPane.add(this.createToolBar());
 		contentPane.add(Box.createVerticalGlue());
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				calcAgent.close();
+				System.exit(0);
+			}
+		});
+		
 		this.pack();
 		this.setLocationRelativeTo(null);
 	}
