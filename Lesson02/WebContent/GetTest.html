@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lesson 2 - GET 메서드</title>
+</head>
+<body>
+
+<h3>GET 요청 1: 웹 브라우저의 주소창에 주소를 입력 후 실행할 때</h3>
+
+<h3>GET 요청 2: 링크를 클릭할 때</h3>
+<p>
+<a href="http://www.google.com">구글</a><br>
+<a href="http://www.facebook.com">페이스북</a><br>
+</p>
+
+<h3>GET 요청 3: 입력폼의 method 속성을 GET으로 지정했을 때</h3>
+<form action="CalculatorServlet" method="get">
+	<input type="text" name="v1" size="4"> 
+	<select name="op">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select> 
+	<input type="text" name="v2" size="4"> 
+	<input type="submit" value="="><br>
+</form> 
+</body>
+</html>
