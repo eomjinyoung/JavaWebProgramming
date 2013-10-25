@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>POST 요청</title>
+</head>
+<body>
+
+<h3>POST 요청 1 - 로그인 폼</h3>
+<p>
+로그인 폼은 입력값 노출을 방지하기 위해 POST를 사용해야 한다.
+</p>
+<form action="LoginServlet" method="post">
+아이디: <input type="text" name="id"><br>
+암호: <input type="password" name="password"><br>
+<input type="submit" value="로그인">
+</form>
+ 
+<h3>POST 요청 2 - 계산기</h3>
+<p>
+URL에 값이 포함되지 않아서 즐겨 찾기에 추가해도 소용없다.
+</p>
+<form action="CalculatorServlet" method="post">
+	<input type="text" name="v1" size="4"> 
+	<select name="op">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select> 
+	<input type="text" name="v2" size="4"> 
+	<input type="submit" value="="><br>
+</form> 
+</body>
+</html>
