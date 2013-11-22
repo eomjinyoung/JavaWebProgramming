@@ -54,7 +54,7 @@ public class MemberAddServlet05 extends HttpServlet {
 						sc.getInitParameter("password")); 
 			stmt = conn.prepareStatement(
 					"INSERT INTO MEMBERS(EMAIL,PWD,MNAME,CRE_DATE,MOD_DATE)"
-					+ "VALUES (?,?,?,NOW(),NOW());");
+					+ " VALUES (?,?,?,NOW(),NOW())");
 			stmt.setString(1, request.getParameter("email"));
 			stmt.setString(2, request.getParameter("password"));
 			stmt.setString(3, request.getParameter("name"));
