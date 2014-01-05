@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <properties resource="spms/dao/db.properties"/>
-
+  
   <settings>
     <setting name="logImpl" value="LOG4J"/>
   </settings>

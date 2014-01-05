@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 2. 동적 SQL 적용 -->
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -15,22 +14,10 @@
     <result column="TAGS"     property="tags"/>
   </resultMap>
   
-  <select id="selectList" parameterType="map" resultMap="projectResultMap">
-    select PNO, PNAME, STA_DATE, END_DATE, STATE
-    from PROJECTS
-    order by
-    <choose> 
-        <when test="orderCond == 'TITLE_ASC'">PNAME asc</when>
-        <when test="orderCond == 'TITLE_DESC'">PNAME desc</when>
-        <when test="orderCond == 'STARTDATE_ASC'">STA_DATE asc</when>
-        <when test="orderCond == 'STARTDATE_DESC'">STA_DATE desc</when>
-        <when test="orderCond == 'ENDDATE_ASC'">END_DATE asc</when>
-        <when test="orderCond == 'ENDDATE_DESC'">END_DATE desc</when>
-        <when test="orderCond == 'STATE_ASC'">STATE asc</when>
-        <when test="orderCond == 'STATE_DESC'">STATE desc</when>
-        <when test="orderCond == 'PNO_ASC'">PNO asc</when>
-        <otherwise>PNO desc</otherwise>
-    </choose>
+  <select id="selectList" resultMap="projectResultMap">
+	  select PNO, PNAME, STA_DATE, END_DATE, STATE
+	  from PROJECTS
+	  order by PNO desc
   </select>
   
   <insert id="insert" parameterType="project">
@@ -44,16 +31,14 @@
     where PNO=#{value}
   </select>
   
-  <update id="update" parameterType="map">
-    update PROJECTS 
-    <set>
-      <if test="title != null">PNAME=#{title},</if>
-      <if test="content != null">CONTENT=#{content},</if>
-      <if test="startDate != null">STA_DATE=#{startDate},</if>
-      <if test="endDate != null">END_DATE=#{endDate},</if>
-      <if test="state != null">STATE=#{state},</if>
-      <if test="tags != null">TAGS=#{tags}</if>
-    </set>
+  <update id="update" parameterType="project">
+    update PROJECTS set
+      PNAME=#{title},
+      CONTENT=#{content},
+      STA_DATE=#{startDate},
+      END_DATE=#{endDate},
+      STATE=#{state},
+      TAGS=#{tags}
     where PNO=#{no}
   </update>
   

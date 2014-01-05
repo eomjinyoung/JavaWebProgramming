@@ -1,4 +1,3 @@
-<%-- 2. 정렬 링크 추가 --%>
 <%@ page 
 	language="java" 
 	contentType="text/html; charset=UTF-8"
@@ -16,61 +15,11 @@
 <p><a href='add.do'>신규 프로젝트</a></p>
 <table border="1">
 <tr>
-  <th><c:choose>
-    <c:when test="${orderCond == 'PNO_ASC'}">
-      <a href="list.do?orderCond=PNO_DESC">번호↑</a>
-    </c:when>
-    <c:when test="${orderCond == 'PNO_DESC'}">
-      <a href="list.do?orderCond=PNO_ASC">번호↓</a>
-    </c:when>
-    <c:otherwise>
-	    <a href="list.do?orderCond=PNO_ASC">번호︎</a>
-    </c:otherwise>
-	</c:choose></th>
-  <th><c:choose>
-    <c:when test="${orderCond == 'TITLE_ASC'}">
-      <a href="list.do?orderCond=TITLE_DESC">제목↑</a>
-    </c:when>
-    <c:when test="${orderCond == 'TITLE_DESC'}">
-      <a href="list.do?orderCond=TITLE_ASC">제목↓</a>
-    </c:when>
-    <c:otherwise>
-      <a href="list.do?orderCond=TITLE_ASC">제목︎</a>
-    </c:otherwise>
-  </c:choose></th>
-  <th><c:choose>
-    <c:when test="${orderCond == 'STARTDATE_ASC'}">
-      <a href="list.do?orderCond=STARTDATE_DESC">시작일↑</a>
-    </c:when>
-    <c:when test="${orderCond == 'STARTDATE_DESC'}">
-      <a href="list.do?orderCond=STARTDATE_ASC">시작일↓</a>
-    </c:when>
-    <c:otherwise>
-      <a href="list.do?orderCond=STARTDATE_ASC">시작일</a>
-    </c:otherwise>
-  </c:choose></th>
-  <th><c:choose>
-    <c:when test="${orderCond == 'ENDDATE_ASC'}">
-      <a href="list.do?orderCond=ENDDATE_DESC">종료일↑</a>
-    </c:when>
-    <c:when test="${orderCond == 'ENDDATE_DESC'}">
-      <a href="list.do?orderCond=ENDDATE_ASC">종료일↓</a>
-    </c:when>
-    <c:otherwise>
-      <a href="list.do?orderCond=ENDDATE_ASC">종료일</a>
-    </c:otherwise>
-  </c:choose></th>
-  <th><c:choose>
-    <c:when test="${orderCond == 'STATE_ASC'}">
-      <a href="list.do?orderCond=STATE_DESC">상태↑</a>
-    </c:when>
-    <c:when test="${orderCond == 'STATE_DESC'}">
-      <a href="list.do?orderCond=STATE_ASC">상태↓</a>
-    </c:when>
-    <c:otherwise>
-      <a href="list.do?orderCond=STATE_ASC">상태</a>
-    </c:otherwise>
-  </c:choose></th>
+  <th>번호</th>
+  <th>제목</th>
+  <th>시작일</th>
+  <th>종료일</th>
+  <th>상태</th>
   <th></th>
 </tr>
 <c:forEach var="project" items="${projects}">
