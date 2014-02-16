@@ -13,7 +13,7 @@ import org.reflections.Reflections;
 
 import spms.annotation.Component;
 
-//2. mybatis 적용에 필요한 변경 
+// mybatis 적용에 필요한 변경 
 public class ApplicationContext {
   Hashtable<String,Object> objTable = new Hashtable<String,Object>();
   

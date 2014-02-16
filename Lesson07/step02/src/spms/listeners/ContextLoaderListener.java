@@ -1,10 +1,16 @@
 package spms.listeners;
 
-//4. 프로퍼티 파일 적용 : ApplicationContext 사용
+// SqlSessionFactory 객체 준비
+import java.io.InputStream;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import spms.context.ApplicationContext;
 
@@ -15,15 +21,28 @@ public class ContextLoaderListener implements ServletContextListener {
   public static ApplicationContext getApplicationContext() {
     return applicationContext;
   }
-  
+   
   @Override
   public void contextInitialized(ServletContextEvent event) {
     try {
-      ServletContext sc = event.getServletContext();
+      applicationContext = new ApplicationContext();
       
+      String resource = "spms/dao/mybatis-config.xml";
+      InputStream inputStream = Resources.getResourceAsStream(resource);
+      SqlSessionFactory sqlSessionFactory = 
+          new SqlSessionFactoryBuilder().build(inputStream);
+      
+      applicationContext.addBean("sqlSessionFactory", sqlSessionFactory);
+      
+      ServletContext sc = event.getServletContext();
       String propertiesPath = sc.getRealPath(
           sc.getInitParameter("contextConfigLocation"));
-      applicationContext = new ApplicationContext(propertiesPath);
+      
+      applicationContext.prepareObjectsByProperties(propertiesPath);
+      
+      applicationContext.prepareObjectsByAnnotation("");
+      
+      applicationContext.injectDependency();
       
     } catch(Throwable e) {
       e.printStackTrace();

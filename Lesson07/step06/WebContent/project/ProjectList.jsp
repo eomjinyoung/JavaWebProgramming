@@ -1,7 +1,7 @@
-<%-- 2. 정렬 링크 추가 --%>
+<%-- 정렬 링크 추가 --%>
 <%@ page 
-	language="java" 
-	contentType="text/html; charset=UTF-8"
+  language="java" 
+  contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>      
 <!DOCTYPE html>
@@ -24,9 +24,9 @@
       <a href="list.do?orderCond=PNO_ASC">번호↓</a>
     </c:when>
     <c:otherwise>
-	    <a href="list.do?orderCond=PNO_ASC">번호︎</a>
+      <a href="list.do?orderCond=PNO_ASC">번호︎</a>
     </c:otherwise>
-	</c:choose></th>
+  </c:choose></th>
   <th><c:choose>
     <c:when test="${orderCond == 'TITLE_ASC'}">
       <a href="list.do?orderCond=TITLE_DESC">제목↑</a>

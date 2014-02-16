@@ -1,12 +1,12 @@
 package spms.dao;
 
-//1. MemberDao 인터페이스 정의 
+import java.util.HashMap;
 import java.util.List;
 
 import spms.vo.Member;
 
 public interface MemberDao {
-  List<Member> selectList() throws Exception;
+  List<Member> selectList(HashMap<String,Object> paramMap) throws Exception;
   int insert(Member member) throws Exception;
   int delete(int no) throws Exception;
   Member selectOne(int no) throws Exception;

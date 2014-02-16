@@ -1,6 +1,6 @@
 package spms.listeners;
 
-//2. SqlSessionFactory 객체 준비
+// SqlSessionFactory 객체 준비
 import java.io.InputStream;
 
 import javax.servlet.ServletContext;

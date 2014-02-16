@@ -1,6 +1,6 @@
 package spms.dao;
 
-//3. 애노테이션 적용 
+// 애노테이션 적용 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

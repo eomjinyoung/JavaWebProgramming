@@ -13,7 +13,7 @@ import org.reflections.Reflections;
 
 import spms.annotation.Component;
 
-//2. 프로퍼티 파일 및 애노테이션을 이용한 객체 준비
+// 프로퍼티 파일 및 애노테이션을 이용한 객체 준비
 public class ApplicationContext {
   Hashtable<String,Object> objTable = new Hashtable<String,Object>();
   

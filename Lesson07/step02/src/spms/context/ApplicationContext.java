@@ -13,7 +13,7 @@ import org.reflections.Reflections;
 
 import spms.annotation.Component;
 
-//2. 프로퍼티 파일 및 애노테이션을 이용한 객체 준비
+// mybatis 적용에 필요한 변경 
 public class ApplicationContext {
   Hashtable<String,Object> objTable = new Hashtable<String,Object>();
   
@@ -21,18 +21,13 @@ public class ApplicationContext {
     return objTable.get(key);
   }
   
-  public ApplicationContext(String propertiesPath) throws Exception {
-    Properties props = new Properties();
-    props.load(new FileReader(propertiesPath));
-    
-    prepareObjects(props);
-    prepareAnnotationObjects();
-    injectDependency();
+  public void addBean(String name, Object obj) {
+    objTable.put(name, obj);
   }
   
-  private void prepareAnnotationObjects() 
+  public void prepareObjectsByAnnotation(String basePackage) 
       throws Exception{
-    Reflections reflector = new Reflections("");
+    Reflections reflector = new Reflections(basePackage);
     
     Set<Class<?>> list = reflector.getTypesAnnotatedWith(Component.class);
     String key = null;
@@ -42,7 +37,10 @@ public class ApplicationContext {
     }
   }
 
-  private void prepareObjects(Properties props) throws Exception {
+  public void prepareObjectsByProperties(String propertiesPath) throws Exception {
+    Properties props = new Properties();
+    props.load(new FileReader(propertiesPath));
+    
     Context ctx = new InitialContext();
     String key = null;
     String value = null;
@@ -58,7 +56,7 @@ public class ApplicationContext {
     }
   }
   
-  private void injectDependency() throws Exception {
+  public void injectDependency() throws Exception {
     for (String key : objTable.keySet()) {
       if (!key.startsWith("jndi.")) {
         callSetter(objTable.get(key));

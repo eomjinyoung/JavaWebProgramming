@@ -1,6 +1,6 @@
 package spms.listeners;
 
-//4. 프로퍼티 파일 적용 : ApplicationContext 사용
+// 프로퍼티 파일 적용 : ApplicationContext 사용
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

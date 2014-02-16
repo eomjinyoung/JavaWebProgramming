@@ -1,6 +1,6 @@
 package spms.dao;
 
-//2. mybatis 적용
+// mybatis 적용
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;

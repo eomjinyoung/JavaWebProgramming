@@ -6,7 +6,7 @@ import spms.annotation.Component;
 import spms.bind.DataBinding;
 import spms.dao.MemberDao;
 
-//4. Annotation 적용
+// Annotation 적용
 @Component("/member/delete.do")
 public class MemberDeleteController implements Controller, DataBinding {
   MemberDao memberDao;

@@ -1,6 +1,6 @@
 package spms.dao;
 
-//3. 동적 SQL 적용
+// 동적 SQL 적용
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;

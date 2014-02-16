@@ -1,6 +1,6 @@
 package spms.dao;
 
-//1. MemberDao 인터페이스 정의 
+// MemberDao 인터페이스 정의 
 import java.util.List;
 
 import spms.vo.Member;

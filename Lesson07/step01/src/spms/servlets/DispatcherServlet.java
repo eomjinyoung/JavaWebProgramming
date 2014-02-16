@@ -16,7 +16,7 @@ import spms.context.ApplicationContext;
 import spms.controls.Controller;
 import spms.listeners.ContextLoaderListener;
 
-//5. 페이지 컨트롤러를 찾을 때 ApplicationContext의 사용
+// 페이지 컨트롤러를 찾을 때 ApplicationContext의 사용
 @SuppressWarnings("serial")
 @WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {

@@ -5,7 +5,7 @@ import java.util.Map;
 import spms.annotation.Component;
 import spms.dao.MemberDao;
 
-//3. Annotation 적용
+// Annotation 적용
 @Component("/member/list.do")
 public class MemberListController implements Controller {
   MemberDao memberDao;

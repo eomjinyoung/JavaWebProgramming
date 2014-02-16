@@ -7,7 +7,7 @@ import spms.bind.DataBinding;
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
-//4. Annotation 적용
+// Annotation 적용
 @Component("/member/add.do")
 public class MemberAddController implements Controller, DataBinding {
   MemberDao memberDao;

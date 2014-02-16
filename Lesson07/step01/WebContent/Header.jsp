@@ -1,4 +1,4 @@
-<%-- 3. 메뉴 추가 --%>
+<%-- 메뉴 추가 --%>
 <%@page import="spms.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,7 +22,7 @@ SPMS(Simple Project Management System)
               !empty sessionScope.member.email}">
 ${sessionScope.member.name}
 (<a style="color:white;" 
-	href="<%=request.getContextPath()%>/auth/logout.do">로그아웃</a>)
+  href="<%=request.getContextPath()%>/auth/logout.do">로그아웃</a>)
 </c:if>
 </span>
 </div>
