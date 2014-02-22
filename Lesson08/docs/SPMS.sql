@@ -8,7 +8,7 @@ CREATE TABLE MEMBERS (
 	MOD_DATE DATETIME     NOT NULL COMMENT '마지막암호변경일' -- 마지막암호변경일
 )
 COMMENT '회원기본';
-
+ 
 -- 회원기본
 ALTER TABLE MEMBERS
 	ADD CONSTRAINT PK_MEMBERS -- 회원기본 기본키
