@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+	</bean>
+
+	<bean id="hankookTire" class="exam.test15.Tire">
+		<property name="maker" value="Hankook" />
+		<property name="createdDate">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2014-5-5" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="kumhoTire" class="exam.test15.Tire">
+    <property name="maker" value="Kumho" />
+    <property name="createdDate">
+      <bean factory-bean="dateFormat" factory-method="parse">
+        <constructor-arg value="2014-1-14" />
+      </bean>
+    </property>
+  </bean>
+</beans>

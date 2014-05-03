@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="spareTire" class="exam.test10.Tire">
+		<property name="maker" value="Hyundai" />
+		<property name="spec">
+			<props>
+				<prop key="width">205</prop>
+				<prop key="ratio">65</prop>
+				<prop key="rim.diameter">14</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="car1" class="exam.test10.Car">
+		<constructor-arg value="Avante" />
+		<constructor-arg>
+			<bean class="exam.test10.Engine" p:maker="Hyundai" p:cc="1495" />
+		</constructor-arg>
+		<property name="options">
+			<map>
+				<entry>
+					<key>
+						<value>sunroof</value>
+					</key>
+					<value>yes</value>
+				</entry>
+				<entry key="airbag" value="dual" />
+				<entry key="sparetire">
+					<ref bean="spareTire" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.MemberDao">
+  <resultMap type="member" id="memberResultMap">
+    <id column="MNO" property="no"/>
+    <result column="MNAME"    property="name"/>
+    <result column="EMAIL"    property="email"/>
+    <result column="PWD"      property="password"/>
+    <result column="CRE_DATE" property="createdDate" javaType="java.sql.Date"/>
+    <result column="MOD_DATE" property="modifiedDate" javaType="java.sql.Date"/>
+  </resultMap>
+  
+  <select id="selectList" parameterType="map" resultMap="memberResultMap">
+    select MNO, MNAME, EMAIL, CRE_DATE
+    from MEMBERS
+    order by
+    <choose>  
+        <when test="orderCond == 'NAME_ASC'">MNAME asc</when>
+        <when test="orderCond == 'NAME_DESC'">MNAME desc</when>
+        <when test="orderCond == 'EMAIL_ASC'">EMAIL asc</when>
+        <when test="orderCond == 'EMAIL_DESC'">EMAIL desc</when>
+        <when test="orderCond == 'CREDATE_ASC'">CRE_DATE asc</when>
+        <when test="orderCond == 'CREDATE_DESC'">CRE_DATE desc</when>
+        <when test="orderCond == 'MNO_ASC'">MNO asc</when>
+        <otherwise>MNO desc</otherwise>
+    </choose>
+  </select>
+  
+  <insert id="insert" parameterType="member">
+    insert into MEMBERS(MNAME,EMAIL,PWD,CRE_DATE,MOD_DATE)
+    values (#{name},#{email},#{password},now(),now())
+  </insert>
+  
+  <select id="selectOne" parameterType="int" resultMap="memberResultMap">
+    select MNO, MNAME, EMAIL, CRE_DATE, MOD_DATE
+    from MEMBERS 
+    where MNO=#{value}
+  </select>
+  
+  <update id="update" parameterType="map">
+    update MEMBERS 
+    <set>
+      <if test="name != null">MNAME=#{name},</if>
+      <if test="email != null">EMAIL=#{email},</if>
+      MOD_DATE=now()
+    </set>
+    where MNO=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from MEMBERS 
+    where MNO=#{value}
+  </delete>
+  
+  <select id="exist" parameterType="map" resultMap="memberResultMap">
+    select MNO, MNAME, EMAIL, CRE_DATE, MOD_DATE
+    from MEMBERS 
+    where EMAIL=#{email} and PWD=#{password}
+  </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hyundaiEngine" class="exam.test14.Engine" 
+	    p:maker="Hyundai" p:cc="1997"/>
+	
+	<bean id="kiaEngine" class="exam.test14.Engine"
+	    p:maker="Kia" p:cc="3000"
+	    scope="prototype"/>
+</beans>
