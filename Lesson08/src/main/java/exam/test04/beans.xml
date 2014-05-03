@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+  <bean id="score1" class="exam.test04.Score">
+      <constructor-arg><value type="java.lang.String">홍길동</value></constructor-arg>
+      <constructor-arg><value type="float">91</value></constructor-arg>
+      <constructor-arg><value type="float">92</value></constructor-arg>
+      <constructor-arg><value type="float">93</value></constructor-arg>
+  </bean>
+  
+  <bean id="score2" class="exam.test04.Score">
+      <constructor-arg><value>임꺽정</value></constructor-arg>
+      <constructor-arg><value>81</value></constructor-arg>
+      <constructor-arg><value>82</value></constructor-arg>
+      <constructor-arg><value>83</value></constructor-arg>
+  </bean> 
+  
+  <bean id="score3" class="exam.test04.Score">
+      <constructor-arg type="java.lang.String" value="장보고"/>
+      <constructor-arg type="float" value="71"/>
+      <constructor-arg type="float" value="72"/>
+      <constructor-arg type="float" value="73"/>
+  </bean> 
+
+  <bean id="score4" class="exam.test04.Score">
+      <constructor-arg value="이순신"/>
+      <constructor-arg value="100"/>
+      <constructor-arg value="98"/>
+      <constructor-arg value="99"/>
+  </bean>
+  
+  <bean id="score5" class="exam.test04.Score">
+      <constructor-arg value="70" index="3"/>
+      <constructor-arg value="50" index="1"/>
+      <constructor-arg value="강감찬" index="0"/>
+      <constructor-arg value="60" index="2"/>
+  </bean>
+  
+</beans>

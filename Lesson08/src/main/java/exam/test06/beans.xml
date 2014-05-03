@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="score1" class="exam.test06.Score"
+      p:name="홍길동" p:kor="100" p:eng="95" p:math="90"/>
+  
+  <bean id="score2" class="exam.test06.Score"
+      c:name="임꺽정" c:kor="80" c:eng="90" c:math="100"/>
+  
+</beans>

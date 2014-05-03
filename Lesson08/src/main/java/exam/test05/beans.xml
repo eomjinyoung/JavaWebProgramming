@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+  <bean id="score1" class="exam.test05.Score">
+    <property name="name"><value>홍길동</value></property>
+    <property name="kor"><value>100</value></property>
+    <property name="eng"><value>95</value></property>
+    <property name="math"><value>90</value></property>
+  </bean>
+  
+  <bean id="score2" class="exam.test05.Score">
+    <property name="name" value="임꺽정"/>
+    <property name="kor" value="85"/>
+    <property name="eng" value="99"/>
+    <property name="math" value="100"/>
+  </bean>
+  
+</beans>
