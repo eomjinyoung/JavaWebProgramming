@@ -7,13 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import spms.bind.DataBinding;
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
 // 스프링 애노테이션(@Component)으로 변경
 @Component("/auth/login.do")
-public class LogInController implements Controller, DataBinding {
+public class LogInController {
   MemberDao memberDao;
   
   @Autowired
@@ -22,13 +21,6 @@ public class LogInController implements Controller, DataBinding {
     return this;
   }
   
-  public Object[] getDataBinders() {
-    return new Object[]{
-        "loginInfo", spms.vo.Member.class
-    };
-  }
-  
-  @Override
   public String execute(Map<String, Object> model) throws Exception {
     Member loginInfo = (Member)model.get("loginInfo");
     

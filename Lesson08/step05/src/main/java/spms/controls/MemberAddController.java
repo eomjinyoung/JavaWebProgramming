@@ -5,13 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import spms.bind.DataBinding;
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
 //스프링 애노테이션(@Component)으로 변경
 @Component("/member/add.do")
-public class MemberAddController implements Controller, DataBinding {
+public class MemberAddController {
   MemberDao memberDao;
   
   @Autowired
@@ -20,13 +19,6 @@ public class MemberAddController implements Controller, DataBinding {
     return this;
   }
   
-  public Object[] getDataBinders() {
-    return new Object[]{
-        "member", spms.vo.Member.class
-    };
-  }
-  
-  @Override
   public String execute(Map<String, Object> model) throws Exception {
     Member member = (Member)model.get("member");
     if (member.getEmail() == null) { // 입력폼을 요청할 때
