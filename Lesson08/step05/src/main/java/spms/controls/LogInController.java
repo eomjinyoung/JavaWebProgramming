@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
-// 스프링 애노테이션(@Component)으로 변경
+//스프링 애노테이션(@Component)으로 변경
 @Component("/auth/login.do")
 public class LogInController {
   MemberDao memberDao;
