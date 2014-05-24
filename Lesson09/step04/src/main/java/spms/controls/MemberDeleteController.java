@@ -4,11 +4,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.MemberDao;
 
-//@Controller 애노테이션으로 변경
-@Controller("/member/delete.do")
+//@RequestMapping 적용
+@Controller
 public class MemberDeleteController {
   MemberDao memberDao;
   
@@ -18,6 +19,7 @@ public class MemberDeleteController {
     return this;
   }
   
+  @RequestMapping("/member/delete.do")
   public String execute(Map<String, Object> model) throws Exception {
     Integer no = (Integer)model.get("no");
     memberDao.delete(no);

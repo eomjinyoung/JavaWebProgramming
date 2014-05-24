@@ -4,12 +4,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.ProjectDao;
 import spms.vo.Project;
 
-//@Controller 애노테이션으로 변경
-@Controller("/project/update.do")
+//@RequestMapping 적용
+@Controller
 public class ProjectUpdateController {
   ProjectDao projectDao;
   
@@ -19,6 +20,7 @@ public class ProjectUpdateController {
     return this;
   }
   
+  @RequestMapping("/project/update.do")
   public String execute(Map<String, Object> model) throws Exception {
     Project project = (Project)model.get("project");
     

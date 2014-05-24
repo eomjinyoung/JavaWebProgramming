@@ -6,12 +6,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
-//@Controller 애노테이션으로 변경
-@Controller("/auth/login.do")
+//@RequestMapping 적용
+@Controller
 public class LogInController {
   MemberDao memberDao;
   
@@ -21,6 +22,7 @@ public class LogInController {
     return this;
   }
   
+  @RequestMapping("/auth/login.do")
   public String execute(Map<String, Object> model) throws Exception {
     Member loginInfo = (Member)model.get("loginInfo");
     

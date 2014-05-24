@@ -4,12 +4,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.MemberDao;
 import spms.vo.Member;
 
-//@Controller 애노테이션으로 변경
-@Controller("/member/add.do")
+//@RequestMapping 적용
+@Controller
 public class MemberAddController {
   MemberDao memberDao;
   
@@ -19,6 +20,7 @@ public class MemberAddController {
     return this;
   }
   
+  @RequestMapping("/member/add.do")
   public String execute(Map<String, Object> model) throws Exception {
     Member member = (Member)model.get("member");
     if (member.getEmail() == null) { // 입력폼을 요청할 때
