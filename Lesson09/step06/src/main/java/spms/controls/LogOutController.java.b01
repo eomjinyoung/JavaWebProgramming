@@ -1,0 +1,17 @@
+package spms.controls;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+//HttpSession 파라미터 적용
+@Controller
+public class LogOutController {
+	
+	@RequestMapping("/auth/logout.do")
+  public String execute(HttpSession session) throws Exception {
+    session.invalidate();
+    return "redirect:login.do";
+  }
+}
