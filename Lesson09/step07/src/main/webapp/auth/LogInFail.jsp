@@ -1,3 +1,4 @@
+<%-- 프런트 컨트롤러 적용 - 링크에 .do 붙임 --%>
 <%@ page 
   language="java" 
   contentType="text/html; charset=UTF-8"
@@ -7,14 +8,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그인</title>
+<meta http-equiv="Refresh" content="1;url=login.do">
+<title>로그인 실패</title>
 </head>
 <body>
-<h2>사용자 로그인</h2>
-<form action="login.do" method="post">
-이메일: <input type="text" name="email"><br>
-암호: <input type="password" name="password"><br>
-<input type="submit" value="로그인">
-</form>
+<p>로그인 실패입니다. 이메일 또는 암호가 맞지 않습니다.!<br>
+잠시 후에 다시 로그인 화면으로 갑니다.</p>
 </body>
 </html>
