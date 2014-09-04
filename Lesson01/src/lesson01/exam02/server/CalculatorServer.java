@@ -12,7 +12,8 @@ public class CalculatorServer {
 		this.port = port;
 	}
 	
-	public void service() throws Exception {
+	@SuppressWarnings("resource")
+  public void service() throws Exception {
 		ServerSocket serverSocket = new ServerSocket(port);
 		System.out.println("CalculatorServer startup:");
 		
