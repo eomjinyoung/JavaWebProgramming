@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	<display-name>web06</display-name>
+	<display-name>web07</display-name>
 	
   <!-- 컨텍스트 초기화 파라미터 -->
   <context-param>
