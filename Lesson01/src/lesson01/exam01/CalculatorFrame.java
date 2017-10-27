@@ -1,10 +1,15 @@
 package lesson01.exam01;
 
+#A generic Abstract Window Toolkit(AWT) container object is a component that can contain other AWT components.
 import java.awt.Container;
+#Dimension class encapsulates the width and height of a component
 import java.awt.Dimension;
+#A semantic event which indicates that a component-defined action occurred.
 import java.awt.event.ActionEvent;
+#listener interface for receiving action events.
 import java.awt.event.ActionListener;
 
+#swing components
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
